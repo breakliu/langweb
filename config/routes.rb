@@ -1,4 +1,10 @@
 Langweb::Application.routes.draw do
+  resources :types
+
+
+  resources :posts
+
+
   authenticated :user do
     root :to => 'home#index'
   end

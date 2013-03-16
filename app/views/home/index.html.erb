@@ -1,4 +1,61 @@
-<h3>Home</h3>
-<% @users.each do |user| %>
-  <p>User: <%=link_to user.name, user %></p>
-<% end %>
+<style type="text/css" media="all">
+.myspan5  { border: 1px solid black; }
+.myspan10 { border: 1px solid black; }
+.myrow    { padding-top: 15px; }
+.myrow2   {  }
+.title    { font-size: 16px; border-bottom: 2px dotted black; }
+.myul     { list-style: none; margin: 0; padding: 0;}
+.myul li  { list-style: none; border-bottom: 1px dotted #CCC; width: 470px; height: 25px; line-height: 25px; white-space:nowrap;}
+.title2    { width:380px; overflow: hidden; text-overflow:ellipsis; -o-text-overflow:ellipsis; }
+</style>
+
+<div class="row myrow2">
+  <div class="span1"></div>
+  <div class="span10"><%= image_tag asset_path('pic1.jpg') %></div>
+  <div class="span1"></div>
+</div>
+
+  
+<div class="row myrow">
+  <div class="span1"></div>
+  <div class="span5">
+    <div class="title">组织结构</div>
+    <ul class="myul">
+      <% @posts1.each do |post| %>
+        <li><span class="title2 pull-left"><a href="<%= post_path(post) %>" title="<%= post.title %>"><%= post.title %></a></span><span class="pull-right"><%= post.created_at.strftime("%Y-%m-%d") %></span></li>
+      <% end %>
+    </ul>
+  </div>
+
+  <div class="span5">
+    <div class="title">活动简讯</div>
+    <ul class="myul">
+      <% @posts2.each do |post| %>
+        <li><span class="title2 pull-left"><a href="<%= post_path(post) %>" title="<%= post.title %>"><%= post.title %></a></span><span class="pull-right"><%= post.created_at.strftime("%Y-%m-%d") %></span></li>
+      <% end %>
+    </ul>
+  </div>
+  <div class="span1"></div>
+</div>
+
+<div class="row myrow">
+  <div class="span1"></div>
+  <div class="span5">
+    <div class="title">宣传窗口</div>
+    <ul class="myul">
+      <% @posts3.each do |post| %>
+        <li><span class="title2 pull-left"><a href="<%= post_path(post) %>" title="<%= post.title %>"><%= post.title %></a></span><span class="pull-right"><%= post.created_at.strftime("%Y-%m-%d") %></span></li>
+      <% end %>
+    </ul>
+  </div>
+
+  <div class="span5">
+    <div class="title">法律公文</div>
+    <ul class="myul">
+      <% @posts4.each do |post| %>
+        <li><span class="title2 pull-left"><a href="<%= post_path(post) %>" title="<%= post.title %>"><%= post.title %></a></span><span class="pull-right"><%= post.created_at.strftime("%Y-%m-%d") %></span></li>
+      <% end %>
+    </ul>
+  </div>
+  <div class="span1"></div>
+</div>

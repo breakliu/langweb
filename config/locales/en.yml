@@ -1,5 +1,31 @@
 # Sample localization file for English. Add more files in this directory for other locales.
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
-en:
+zh-CN:
   hello: "Hello world"
+  activerecord:
+    models:
+      user: "用户"
+      post: "文章"
+    attributes:
+      user:
+        username: "用户名"
+        email: "电子邮箱"
+        password_confirmation: "确认密码"
+        password: "密码"
+        login: "用户名"
+        remember_me: "记住登录状态"
+        current_password: "当前密码"
+      post:
+        title: "标题"
+        content: "内容"
+        type: "分类"
+        type_id: "分类"
+        created_at: "创建时间"
+  views:
+    pagination:
+      first: "&laquo; 首页"
+      last: "尾页 &raquo;"
+      previous: "&lsaquo; 上一页"
+      next: "下一页 &rsaquo;"
+      truncate: "..."
