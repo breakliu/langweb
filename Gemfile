@@ -1,5 +1,5 @@
 source 'http://ruby.taobao.org'
-gem 'rails', '3.2.13.rc2'
+gem 'rails', '3.2.13'
 gem 'rails-i18n'
 gem 'sqlite3'
 group :assets do
@@ -36,3 +36,4 @@ gem 'bullet', :group => :development
 gem "figaro", ">= 0.5.3"
 gem "better_errors", ">= 0.6.0", :group => :development
 gem "binding_of_caller", ">= 0.7.1", :group => :development, :platforms => [:mri_19, :rbx]
+gem 'puma'
