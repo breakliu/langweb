@@ -1,7 +1,7 @@
 #!/bin/sh
 
 ### BEGIN INIT INFO
-# Provides:          puma_debian 
+# Provides:          langweb
 # Required-Start:    $local_fs $remote_fs $network $syslog
 # Required-Stop:     $local_fs $remote_fs $network $syslog
 # Default-Start:     2 3 4 5
@@ -16,25 +16,26 @@ RUBY_FREE_MIN=200000
 RUBY_GC_MALLOC_LIMIT=60000000
 export RUBY_HEAP_MIN_SLOTS RUBY_FREE_MIN RUBY_GC_MALLOC_LIMIT
 
-PROJECT_DIR="/var/www/htdocs/langweb"
+PROJECT_DIR="/home/lcl/www/htdocs/langweb"
 cd $PROJECT_DIR
 state_file="log/puma.state"
+user="lcl"
 
 case "$1" in
   start)
-    bundle exec puma -C config/puma.rb
+    sudo -u $user -H bash -l -c "bundle exec puma -C config/puma.rb"
     ;;
   stop)
-    bundle exec pumactl -S $state_file stop
+    sudo -u $user -H bash -l -c "bundle exec pumactl -S $state_file stop"
     ;;
   restart)
-    bundle exec pumactl -S $state_file restart
+    sudo -u $user -H bash -l -c "bundle exec pumactl -S $state_file restart"
     ;;
   status)
-    bundle exec pumactl -S $state_file status
+    sudo -u $user -H bash -l -c "bundle exec pumactl -S $state_file status"
     ;;
   force-stop)
-    bundle exec pumactl -S $state_file halt
+    sudo -u $user -H bash -l -c "bundle exec pumactl -S $state_file halt"
     ;;
   *)
     echo "Usage: $0 {start|stop|force-stop|restart|status}"
